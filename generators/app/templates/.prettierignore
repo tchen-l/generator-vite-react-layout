@@ -1,0 +1,4 @@
+build/*
+build.zip
+public
+node_modules/*
