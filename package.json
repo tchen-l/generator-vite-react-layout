@@ -2,6 +2,7 @@
   "name": "generator-vite-react-layout",
   "version": "1.0.1",
   "main": "index.js",
+  "repository": "https://github.com/tchen-l/generator-vite-react-layout.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
