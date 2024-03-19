@@ -4,7 +4,7 @@ import { RootErrorBoundary } from '@/components';
 import Layout from '@/layout';
 
 const lazy = (src: string) => async () => {
-  const { default: Component } = await import(src);
+  const { default: Component } = await import(/* @vite-ignore */ src);
   return {
     Component
   };
@@ -27,6 +27,11 @@ const routes: RouteObject[] = [
       {
         path: '/hello-world-child',
         lazy: lazy('../pages/hello-world/hello-world-child'),
+        caseSensitive: true
+      },
+      {
+        path: '/blank',
+        lazy: lazy('../pages/blank'),
         caseSensitive: true
       },
       {

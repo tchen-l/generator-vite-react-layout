@@ -1,6 +1,6 @@
 import { Button, Result, Spin } from 'antd';
 import { useEffect } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { matchPath, Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 import { isOpenPage } from '@/helpers/auth';
 import useAppStore from '@/store/app';
@@ -8,11 +8,13 @@ import useAppStore from '@/store/app';
 import BasicLayout from './BasicLayout';
 import BlankLayout from './BlankLayout';
 
-const isBlankLayout = (route?: { layout: string } | undefined) => route?.layout === 'blank';
+const isBlankLayout = (pathname: string) =>
+  ['/blank'].some((path) => matchPath({ path, caseSensitive: true }, pathname));
 
 function InitDataLayout() {
   const { loading, currentUser, init } = useAppStore();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   /** do something yourself */
   const canAccess = true;
@@ -40,7 +42,7 @@ function InitDataLayout() {
     );
   }
 
-  return isBlankLayout() ? <BlankLayout /> : <BasicLayout />;
+  return isBlankLayout(pathname) ? <BlankLayout /> : <BasicLayout />;
 }
 
 export default function Layout() {

@@ -18,11 +18,6 @@ export default function BasicLayout() {
       location={{
         pathname
       }}
-      token={{
-        header: {
-          colorBgMenuItemSelected: 'rgba(0,0,0,0.04)'
-        }
-      }}
       menu={{
         collapsedShowGroupTitle: true
       }}
