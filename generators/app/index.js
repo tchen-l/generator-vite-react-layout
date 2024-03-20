@@ -45,30 +45,30 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copy(this.templatePath('.husky'), this.destinationPath('.husky'));
-    this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
-    this.fs.copy(this.templatePath('env/.env'), this.destinationPath('env/.env'));
-    this.fs.copy(this.templatePath('env/.env.test'), this.destinationPath('env/.env.test'));
-    this.fs.copy(this.templatePath('env/.env.staging'), this.destinationPath('env/.env.staging'));
+    this.fs.copy(this.templatePath('husky'), this.destinationPath('.husky'));
+    this.fs.copy(this.templatePath('vscode'), this.destinationPath('.vscode'));
+    this.fs.copy(this.templatePath('env/env'), this.destinationPath('env/.env'));
+    this.fs.copy(this.templatePath('env/env.test'), this.destinationPath('env/.env.test'));
+    this.fs.copy(this.templatePath('env/env.staging'), this.destinationPath('env/.env.staging'));
     this.fs.copy(
-      this.templatePath('env/.env.production'),
+      this.templatePath('env/env.production'),
       this.destinationPath('env/.env.production')
     );
     this.fs.copy(this.templatePath('public'), this.destinationPath('public'));
     this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
-    this.fs.copy(this.templatePath('.editorconfig'), this.destinationPath('.editorconfig'));
-    this.fs.copy(this.templatePath('.eslintignore'), this.destinationPath('.eslintignore'));
-    this.fs.copy(this.templatePath('.eslintrc.cjs'), this.destinationPath('.eslintrc.cjs'));
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
-    this.fs.copy(this.templatePath('.prettierignore'), this.destinationPath('.prettierignore'));
-    this.fs.copy(this.templatePath('.prettierrc.cjs'), this.destinationPath('.prettierrc.cjs'));
+    this.fs.copy(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'));
+    this.fs.copy(this.templatePath('eslintignore'), this.destinationPath('.eslintignore'));
+    this.fs.copy(this.templatePath('eslintrc.cjs'), this.destinationPath('.eslintrc.cjs'));
+    this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('prettierignore'), this.destinationPath('.prettierignore'));
+    this.fs.copy(this.templatePath('prettierrc.cjs'), this.destinationPath('.prettierrc.cjs'));
     this.fs.copy(
       this.templatePath('commitlint.config.js'),
       this.destinationPath('commitlint.config.js')
     );
     this.fs.copy(this.templatePath('index.html'), this.destinationPath('index.html'));
     this.fs.copyTpl(
-      this.templatePath('package.json'),
+      this.templatePath('package.json.vm'),
       this.destinationPath('package.json'),
       this.answer
     );
