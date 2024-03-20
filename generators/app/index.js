@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const Generators = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 
-module.exports = class extends Generators {
+module.exports = class extends Generator {
   constructor(args, opts, features) {
     super(args, opts, features);
   }
@@ -44,7 +44,7 @@ module.exports = class extends Generators {
     this.destinationRoot(path.join(this.destinationRoot(), this.answer.answers.name));
   }
 
-  writting() {
+  writing() {
     this.fs.copy(this.templatePath('.husky'), this.destinationPath('.husky'));
     this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
     this.fs.copy(this.templatePath('env/.env'), this.destinationPath('env/.env'));
