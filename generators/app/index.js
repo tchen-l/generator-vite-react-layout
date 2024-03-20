@@ -56,12 +56,12 @@ module.exports = class extends Generators {
     );
     this.fs.copy(this.templatePath('public'), this.destinationPath('public'));
     this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
-    this.fs.copy(this.templatePath('.editorconfig'), this.destinationPath('.editorconfig'));
-    this.fs.copy(this.templatePath('.eslintignore'), this.destinationPath('.eslintignore'));
-    this.fs.copy(this.templatePath('.eslintrc.cjs'), this.destinationPath('.eslintrc.cjs'));
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
-    this.fs.copy(this.templatePath('.prettierignore'), this.destinationPath('.prettierignore'));
-    this.fs.copy(this.templatePath('.prettierrc.cjs'), this.destinationPath('.prettierrc.cjs'));
+    this.fs.copy(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'));
+    this.fs.copy(this.templatePath('eslintignore'), this.destinationPath('.eslintignore'));
+    this.fs.copy(this.templatePath('eslintrc.cjs'), this.destinationPath('.eslintrc.cjs'));
+    this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('prettierignore'), this.destinationPath('.prettierignore'));
+    this.fs.copy(this.templatePath('prettierrc.cjs'), this.destinationPath('.prettierrc.cjs'));
     this.fs.copy(
       this.templatePath('commitlint.config.js'),
       this.destinationPath('commitlint.config.js')
