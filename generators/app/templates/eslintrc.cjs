@@ -15,6 +15,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
     'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error'
+    'simple-import-sort/exports': 'error',
+    'react-refresh/only-export-components': 0
   }
 };

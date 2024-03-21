@@ -13,8 +13,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  envDir: './env',
-  server: {
-    host: '0.0.0.0'
-  }
+  envDir: './env'
 });

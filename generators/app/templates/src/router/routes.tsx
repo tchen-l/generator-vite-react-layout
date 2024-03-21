@@ -1,14 +1,15 @@
 import { RouteObject } from 'react-router-dom';
 
 import { RootErrorBoundary } from '@/components';
+import lazy from '@/helpers/lazy';
 import Layout from '@/layout';
 
-const lazy = (src: string) => async () => {
-  const { default: Component } = await import(/* @vite-ignore */ src);
-  return {
-    Component
-  };
-};
+const Home = lazy(() => import('../pages/home'));
+const HelloWord = lazy(() => import('../pages/hello-world'));
+const HelloWordChild = lazy(() => import('../pages/hello-world/hello-world-child'));
+const Blank = lazy(() => import('../pages/blank'));
+const Login = lazy(() => import('../pages/login'));
+const NoMatch = lazy(() => import('../pages/no-match'));
 
 const routes: RouteObject[] = [
   {
@@ -17,33 +18,33 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '/',
-        lazy: lazy('../pages/home')
+        Component: Home
       },
       {
         path: '/hello-world',
-        lazy: lazy('../pages/hello-world'),
+        Component: HelloWord,
         caseSensitive: true
       },
       {
         path: '/hello-world-child',
-        lazy: lazy('../pages/hello-world/hello-world-child'),
+        Component: HelloWordChild,
         caseSensitive: true
       },
       {
         path: '/blank',
-        lazy: lazy('../pages/blank'),
+        Component: Blank,
         caseSensitive: true
       },
       {
         path: '/login',
         caseSensitive: true,
-        lazy: lazy('../pages/login')
+        Component: Login
       }
     ]
   },
   {
     path: '*',
-    lazy: lazy('../pages/no-match')
+    Component: NoMatch
   }
 ];
 
