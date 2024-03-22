@@ -14,7 +14,7 @@
     "preview": "vite preview"
   },
   "lint-staged": {
-    "*.{j,t}s?(x)": "eslint --max-warnings=0 --ignore-pattern=public/**/*"
+    "*.{j,t}s?(x)": "eslint --ignore-pattern=public/**/*"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
