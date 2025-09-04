@@ -1,21 +1,25 @@
 module.exports = {
   root: true,
   extends: ['airbnb-typescript-prettier'],
-  ignorePatterns: ['build', '.eslintrc.cjs'],
+  ignorePatterns: ['build', '.eslintrc.cjs', 'dist'],
   plugins: ['react-refresh', 'simple-import-sort'],
   settings: {
     'import/resolver': {
-      typescript: {}
-    }
+      typescript: {
+        project: './tsconfig.json',
+      },
+    },
   },
   rules: {
+    'react/react-in-jsx-scope': 'off', // React 17+ 不需要
+    'react/jsx-props-no-spreading': 'off', // 允许 props 展开
+    'react/require-default-props': 'off', // TypeScript 中不需要
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'react/react-in-jsx-scope': 0,
-    'import/no-extraneous-dependencies': 0,
-    'import/prefer-default-export': 0,
-    'react/jsx-props-no-spreading': 0,
+    'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    'react-refresh/only-export-components': 0
-  }
+    '@typescript-eslint/no-unused-vars': 'error',
+  },
 };
